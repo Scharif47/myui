@@ -3,19 +3,27 @@ function App() {
   return (
     <div>
       <div>
-        <Button />
+        <Button primary danger>Primary</Button>
       </div>
       <div>
-        <Button />
+        <Button secondary outline>
+          Secondary
+        </Button>
       </div>
       <div>
-        <Button />
+        <Button success rounded>
+          Success
+        </Button>
       </div>
       <div>
-        <Button />
+        <Button warning outline>
+          Warning
+        </Button>
       </div>
       <div>
-        <Button />
+        <Button danger rounded outline>
+          Danger
+        </Button>
       </div>
     </div>
   );

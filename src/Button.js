@@ -1,6 +1,31 @@
+import PropTypes from "prop-types";
 
-function Button () {
-  return <button>Hi there!</button>
+function Button({
+  children,
+  primary,
+  secondary,
+  success,
+  warning,
+  danger,
+  outline,
+  rounded,
+}) {
+  return <button>{children}</button>;
 }
 
-export default Button
+Button.propTypes = {
+  checkVariationValue: ({ primary, secondary, success, warning, danger }) => {
+    const count =
+      Number(!!primary) +
+      Number(!!secondary) +
+      Number(!!success) +
+      Number(!!warning) +
+      Number(!!danger);
+
+    if (count > 1) {
+      return new Error("You can only have one variation at a time");
+    }
+  },
+};
+
+export default Button;
