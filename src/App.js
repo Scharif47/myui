@@ -3,7 +3,7 @@ function App() {
   return (
     <div>
       <div>
-        <Button primary danger>Primary</Button>
+        <Button primary>Primary</Button>
       </div>
       <div>
         <Button secondary outline>
