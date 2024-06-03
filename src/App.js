@@ -1,4 +1,6 @@
+import { GoBell, GoShield, GoStar } from "react-icons/go";
 import Button from "./Button";
+
 function App() {
   return (
     <div>
@@ -12,16 +14,19 @@ function App() {
       </div>
       <div>
         <Button success rounded>
+          <GoStar />
           Success
         </Button>
       </div>
       <div>
         <Button warning outline>
+          <GoBell />
           Warning
         </Button>
       </div>
       <div>
         <Button danger rounded outline>
+          <GoShield />
           Danger
         </Button>
       </div>
