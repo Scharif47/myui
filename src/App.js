@@ -5,7 +5,7 @@ function App() {
   return (
     <div>
       <div>
-        <Button primary>Primary</Button>
+        <Button primary className="mb-5">Primary</Button>
       </div>
       <div>
         <Button secondary outline>
