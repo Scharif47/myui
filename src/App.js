@@ -1,37 +1,25 @@
-import { GoBell, GoShield, GoStar } from "react-icons/go";
-import Button from "./Button";
+import Accordion from "./components/Accordion";
 
 function App() {
-  return (
-    <div>
-      <div>
-        <Button primary className="mb-5">Primary</Button>
-      </div>
-      <div>
-        <Button secondary outline>
-          Secondary
-        </Button>
-      </div>
-      <div>
-        <Button success rounded>
-          <GoStar />
-          Success
-        </Button>
-      </div>
-      <div>
-        <Button warning outline>
-          <GoBell />
-          Warning
-        </Button>
-      </div>
-      <div>
-        <Button danger rounded outline>
-          <GoShield />
-          Danger
-        </Button>
-      </div>
-    </div>
-  );
+  const items = [
+    {
+      id: "jszdf23jd",
+      label: "Is React the best?",
+      content: "React is the best because it is the most popular.",
+    },
+    {
+      id: "jsddfsd3jd",
+      label: "Is Angular the best?",
+      content: "Angular is the best because it is the most powerful.",
+    },
+    {
+      id: "jsdsdf23jdsd",
+      label: "Is Vue the best?",
+      content: "Vue is the best because it is the easiest to learn.",
+    },
+  ];
+
+  return <Accordion items={items} />;
 }
 
 export default App;
