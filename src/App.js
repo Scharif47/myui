@@ -1,25 +1,22 @@
-import Accordion from "./components/Accordion";
+import { useState } from "react";
+import Dropdown from "./components/Dropdown";
 
 function App() {
-  const items = [
-    {
-      id: "jszdf23jd",
-      label: "Is React the best?",
-      content: "React is the best because it is the most popular.",
-    },
-    {
-      id: "jsddfsd3jd",
-      label: "Is Angular the best?",
-      content: "Angular is the best because it is the most powerful.",
-    },
-    {
-      id: "jsdsdf23jdsd",
-      label: "Is Vue the best?",
-      content: "Vue is the best because it is the easiest to learn.",
-    },
+  const [selection, setSelection] = useState(null);
+
+  const handleSelect = (option) => {
+    setSelection(option);
+  };
+
+  const options = [
+    { label: "Red", value: "red" },
+    { label: "Green", value: "green" },
+    { label: "Blue", value: "blue" },
   ];
 
-  return <Accordion items={items} />;
+  return (
+    <Dropdown options={options} value={selection} onChange={handleSelect} />
+  );
 }
 
 export default App;
