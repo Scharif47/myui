@@ -6,7 +6,11 @@ function Table({ data, config, keyFn }) {
       return <Fragment key={column.label}>{column.header()}</Fragment>;
     }
 
-    return <th key={column.label}>{column.label}</th>;
+    return (
+      <th className="px-4 py-2" key={column.label}>
+        {column.label}
+      </th>
+    );
   });
 
   const renderedRows = data.map((rowData) => {

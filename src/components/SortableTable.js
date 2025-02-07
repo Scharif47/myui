@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
 import Table from "./Table";
 
 function SortableTable(props) {
@@ -7,6 +8,12 @@ function SortableTable(props) {
   const { config, data } = props;
 
   const handleClick = (label) => {
+    if (sortBy && label !== sortBy) {
+      setSortOrder("asc");
+      setSortBy(label);
+      return;
+    }
+
     if (!sortOrder) {
       setSortOrder("asc");
       setSortBy(label);
@@ -26,7 +33,14 @@ function SortableTable(props) {
 
     return {
       ...column,
-      header: () => <th onClick={() => handleClick(column.label)}>{column.label}</th>,
+      header: () => (
+        <th className="cursor-pointer hover:bg-gray-100" onClick={() => handleClick(column.label)}>
+          <div className="flex items-center">
+            {getIcons(column.label, sortBy, sortOrder)}
+            {column.label}
+          </div>
+        </th>
+      ),
     };
   });
 
@@ -48,6 +62,30 @@ function SortableTable(props) {
   }
 
   return <Table {...props} data={sortedData} config={updatedConfig} />;
+}
+
+function getIcons(label, sortBy, sortOrder) {
+  if (label !== sortBy) {
+    return (
+      <div>
+        <GoTriangleUp />
+        <GoTriangleDown />
+      </div>
+    );
+  }
+
+  if (sortOrder === null) {
+    return (
+      <div>
+        <GoTriangleUp />
+        <GoTriangleDown />
+      </div>
+    );
+  } else if (sortOrder === "asc") {
+    return <GoTriangleUp />;
+  } else if (sortOrder === "desc") {
+    return <GoTriangleDown />;
+  }
 }
 
 export default SortableTable;
